@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Course_Project_Wk4
+namespace Course_Project_Wk5
 {
     class Program
     {
@@ -15,39 +15,40 @@ namespace Course_Project_Wk4
             char letter2 = 'R';
             char letter3 = 'U';
             char letter4 = 'Z';
-            char letter;
+            char letter = 'A';
+            char[] guessed = new char[10];
             int score = 0;
             
 
-            //welcome message
-            Console.WriteLine("Welcome to my hangman game, Good Luck!");
-            Console.WriteLine("****");
-            
-            //get input from user
-            Console.Write("\n\n Please enter a letter: ");
-            letter = char.Parse(Console.ReadLine());
 
-          
-            while (letter == letter1 || letter == letter2 || letter == letter3 || letter == letter4)
+            //welcome message
+            Console.WriteLine("Welcome to my Hangman game, Good Luck!");
+            Console.WriteLine("CAPITAL LETTERS ONLY");           
+
+            Console.WriteLine("****");
+
+            for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine("You guessed Correctly");              
                 Console.Write("Please enter a letter: ");
                 letter = char.Parse(Console.ReadLine());
 
-            if (letter != letter1 || letter != letter2 || letter != letter3 || letter != letter4)
+                if (letter == letter1 || letter == letter2 || letter == letter3 || letter == letter4)
                 {
-                    Console.WriteLine("Sorry you guessed wrong");
-                    Console.Write("Please enter a letter: ");
-                    letter = char.Parse(Console.ReadLine());
-
+                    Console.WriteLine("You guessed correctly!");
+                    score--;
+                 
                 }
+                else
+                {
+                    Console.WriteLine("You guessed incorrectly!");
+                    score++;
+                }
+              
             }
-            
-           
-            Console.ReadLine();//keep console window open
-            
 
+            Console.WriteLine("Your total score is: " + score);
+
+            Console.ReadLine();
         }
     }
 }
-
